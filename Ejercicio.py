@@ -30,8 +30,11 @@ while op !=5:
             if anular == 1:
                 asiento = vueloAnulado(asiento)
                 print("asientos disponibles: ",asiento)
+            if anular == 2:
+                print("gracias por no anular")
+        if op == 4:
+            print("continuara...")
+        
     except:
         print("Debe ingresar un numero")
-
-    
-
+print("adios")
