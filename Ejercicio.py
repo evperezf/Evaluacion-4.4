@@ -1,10 +1,11 @@
-<<<<<<< HEAD
+def asientosDisp(asiento):
+    asiento = asiento - asComp
+    return asiento
+def vueloAnulado(asiento):
+    asiento = asiento + asComp
+    return asiento
 asiento = 30
 asComp = 0
-=======
-asientoNormal: 78900
-asientoVip: 240000
->>>>>>> 8aa527c8a96850e1513bbf53a6365b67ec0ad416
 op = 4
 
 while op !=5:
@@ -22,7 +23,13 @@ while op !=5:
             print("asientos disponibles",asiento)
         if op == 2:
             asComp = int(input("¿Cuantos asientos desea comprar?: "))
-            asiento = asiento - asComp
+            asiento = asientosDisp(asiento)
+            print("asientos disponibles: ",asiento)
+        if op == 3:
+            anular = int(input("¿desea anular vuelo? (1=si, 2=no): "))
+            if anular == 1:
+                asiento = vueloAnulado(asiento)
+                print("asientos disponibles: ",asiento)
     except:
         print("Debe ingresar un numero")
 
