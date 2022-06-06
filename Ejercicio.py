@@ -1,3 +1,5 @@
+asiento = 30
+asComp = 0
 op = 4
 
 while op !=5:
@@ -11,7 +13,13 @@ while op !=5:
     print("*"*50)
     try:
         op = int(input("Ingresar una opcion (1-5): "))
-        op = False
+        if op == 1:
+            print("asientos disponibles",asiento)
+        if op == 2:
+            asComp = int(input("¿Cuantos asientos desea comprar?: "))
+            asiento = asiento - asComp
     except:
         print("Debe ingresar un numero")
-        
+
+    
+
