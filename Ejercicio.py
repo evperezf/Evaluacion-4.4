@@ -11,6 +11,7 @@ while op !=5:
     print("*"*50)
     try:
         op = int(input("Ingresar una opcion (1-5): "))
-        flag = False
+        op = False
     except:
         print("Debe ingresar un numero")
+        
