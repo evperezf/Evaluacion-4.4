@@ -5,6 +5,7 @@ def vueloAnulado(asiento):
     asiento = asiento + asComp
     return asiento
 asiento = 30
+vip = 12
 asComp = 0
 op = 4
 
@@ -20,7 +21,7 @@ while op !=5:
     try:
         op = int(input("Ingresar una opcion (1-5): "))
         if op == 1:
-            print("asientos disponibles",asiento)
+            print("asientos disponibles: \n",asiento, " Asientos Normales\n", vip, " Asientos Vip")
         if op == 2:
             asComp = int(input("¿Cuantos asientos desea comprar?: "))
             asiento = asientosDisp(asiento)
