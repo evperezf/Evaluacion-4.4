@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 asiento = 30
 asComp = 0
+=======
+asientoNormal: 78900
+asientoVip: 240000
+>>>>>>> 8aa527c8a96850e1513bbf53a6365b67ec0ad416
 op = 4
 
 while op !=5:
