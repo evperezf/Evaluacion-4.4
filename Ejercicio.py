@@ -1,3 +1,5 @@
+asientoNormal: 78900
+asientoVip: 240000
 op = 4
 
 while op !=5:
