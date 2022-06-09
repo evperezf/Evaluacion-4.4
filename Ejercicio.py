@@ -12,7 +12,12 @@ def comprarAsientos():
         rutPasajero=str(input("Rut (con guion y digito verificador): "))    
     telefonoPasajero= ""
     while len(str(telefonoPasajero)) !=8:    
+<<<<<<< HEAD
         telefonoPasajero=int(input("Telefono: (9) "))   
+=======
+        telefonoPasajero=int(input("Telefono: (9) "))
+   
+>>>>>>> 8ed0079c950b13d828497d6267418c1570c2f6df
 asientosList_Norm = [str(x) for x in range(1,31)]
 asientoVend = 0  
 arrayNorm =np.array(asientosList_Norm).reshape(5,6)
@@ -60,7 +65,12 @@ while op !=5:
             asComp = int(input("¿que asiento desea comprar? (1. normal y 2. es vip):  "))
             if asComp == 1:
                 asNorm = int(input("indicar cantidad de asientos que comprara: "))
+<<<<<<< HEAD
                 print(arrayNorm)                
+=======
+                print(arrayNorm)
+                
+>>>>>>> 8ed0079c950b13d828497d6267418c1570c2f6df
                 cantAsn = asNorm*valorAsn
                 for i in range(asNorm):
                     asientoVend = input("eliga asientos: ")
@@ -69,7 +79,12 @@ while op !=5:
                             if asientoVend == arrayNorm[fila][asiento]:
                                 arrayNorm[fila][asiento] = "X"
                                 print(arrayNorm)
+<<<<<<< HEAD
                                 print(arrayVip)                        
+=======
+                                print(arrayVip)
+                          
+>>>>>>> 8ed0079c950b13d828497d6267418c1570c2f6df
                 print(" Total asientos comprados: ",asNorm,"\n","Monto total a pagar: ""$",cantAsn)
             if asComp == 2:
                 asVip = int(input("indicar cantidad de asientos que comprara: "))
@@ -85,7 +100,10 @@ while op !=5:
                                 print(arrayVip)
             print(" Total asientos comprados: ",asVip,"\n","Monto total a pagar: ""$",cantAsv)
         if op == 3:
+<<<<<<< HEAD
             asNorm = int(input("indicar cantidad de asientos a devolver: "))
+=======
+>>>>>>> 8ed0079c950b13d828497d6267418c1570c2f6df
             for i in range(asNorm):
                 eliminar = input("eliga asientos: ")
                 count = 0 
@@ -94,6 +112,7 @@ while op !=5:
                         for asiento in range(6):
                             count = count + 1
                             if str(arrayNorm[fila][asiento]) == "X" and count == int(eliminar):
+<<<<<<< HEAD
                                 arrayNorm[fila][asiento] = count                           
                                 print(arrayNorm)
                                 print(arrayVip)
@@ -107,6 +126,23 @@ while op !=5:
                                     arrayVip[fila][asiento] = count 
                                     print(arrayNorm)
                                     print(arrayVip)      
+=======
+                                arrayNorm[fila][asiento] = count
+                            
+                                print(arrayNorm)
+                                print(arrayVip)
+            else:
+                count = count + 30
+                for fila in range(2):
+                    for asiento in range(6):
+                        count = count + 1
+                        if str(arrayVip[fila][asiento]) == "X" and count == int(eliminar):
+                            arrayVip[fila][asiento] = count
+                            
+                            print(arrayNorm)
+                            print(arrayVip)
+            
+>>>>>>> 8ed0079c950b13d828497d6267418c1570c2f6df
         if op == 4:
             print("*"*30) 
             comprarAsientos()
