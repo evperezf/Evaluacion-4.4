@@ -19,8 +19,8 @@ def comprarAsientos():
     telefonoPasajero= ""
     while len(str(telefonoPasajero)) != 8:    
         telefonoPasajero=int(input("Telefono: "))
-    bancoPasajero=str(input("Banco: "))
-    print("*"*30)
+     # if bancoPasajero = "banco duoc" aplicar descuento
+   
 
 #def asientosDisp():   
 asientosList_Norm = [str(x) for x in range(1,31)]
@@ -62,10 +62,18 @@ while op !=5:
             print("asientos disponibles: \n",normal, " Asientos Normales\n", vip, " Asientos Vip")
         if op == 2:
             comprarAsientos()
+            bancoPasajero = input("Banco: ")
+            if bancoPasajero == "banco duoc":
+                valorAVipdesc = valorAVp*descuento
+                valorAsndesc=valorAsn*descuento
+                valorAsn = valorAsn - valorAsndesc
+                valorAVp = valorAVp - valorAVipdesc
+                print("*"*30)
             asComp = int(input("¿que asiento desea comprar? (1. normal y 2. es vip):  "))
             if asComp == 1:
                 asNorm = int(input("indicar cantidad de asientos que comprara: "))
                 print(arrayNorm)
+                
                 cantAsn = asNorm*valorAsn
                 for i in range(asNorm):
                     asientoVend = input("eliga asientos: ")
@@ -77,7 +85,7 @@ while op !=5:
                                 print(arrayVip)
                           #asNorm = int(input("favor elegir asientos entre el 1 y el 30?: "))   
                           #asiento = asientosDisp(asiento)
-                print("total: ",asNorm,"  $",cantAsn)
+                print("Total asientos comprados: ",asNorm,"\n", "Monto total a pagar: ""  $",cantAsn)
             if asComp == 2:
                 asVip = int(input("indicar cantidad de asientos que comprara: "))
                 print(arrayVip)
@@ -90,6 +98,7 @@ while op !=5:
                                 arrayVip[fila][asiento] = "X"
                                 print(arrayNorm)
                                 print(arrayVip)
+            print("Total asientos comprados: ",asVip,"\n", "Monto total a pagar: ""  $",cantAsv)
         if op == 3:
             eliminar = input("eliga asientos: ")
             count = 0 
