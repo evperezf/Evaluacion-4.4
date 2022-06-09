@@ -2,12 +2,6 @@ import numpy as np
 from sqlalchemy import desc
 bancoduoc = 0
 descuento = 0.15
-#def asientosDisp(asiento):
-    #asiento = asiento - asComp
-    #return asiento
-#def vueloAnulado(asiento):
-    #asiento = asiento + asComp
-    #return asiento
 def comprarAsientos():
     print("comprar asientos")
     print("favor ingresar datos")
@@ -17,23 +11,18 @@ def comprarAsientos():
     while len(rutPasajero) != 10:
         rutPasajero=str(input("Rut (con guion y digito verificador): "))    
     telefonoPasajero= ""
-    while len(str(telefonoPasajero)) != 8:    
-        telefonoPasajero=int(input("Telefono: "))
-     # if bancoPasajero = "banco duoc" aplicar descuento
+    while len(str(telefonoPasajero)) !=8:    
+        telefonoPasajero=int(input("Telefono: (9) "))
    
-
-#def asientosDisp():   
 asientosList_Norm = [str(x) for x in range(1,31)]
-asientoVend = 0 #debe ser un opcion string? para que genere el cambio ya que todo debe ser extring ya que sino es imposible generar cuadraturas
-# asientoVend = input("Que asiento desea ocupar")//pero si es string habria que poner un lowercase para que tome todas las combinaciones posibles para generar un pago o no?, no necestariamente, se deberia generara un arametro del 1-30 para que el monto sea asiento normal y otro del 31-42 asinto vip para cobrar monto mayor   
+asientoVend = 0  
 arrayNorm =np.array(asientosList_Norm).reshape(5,6)
 for fila in range(5):
     for asiento in range(6):
         if asientoVend == arrayNorm[fila][asiento]:
             arrayNorm[fila][asiento] = "X"
 asientosList_Vip = [str(x) for x in range(31,43)]
-asientoVend = 0 #debe ser un opcion string? para que genere el cambio ya que todo debe ser extring ya que sino es imposible generar cuadraturas
-# asientoVend = input("Que asiento desea ocupar")//pero si es string habria que poner un lowercase para que tome todas las combinaciones posibles para generar un pago o no?, no necestariamente, se deberia generara un arametro del 1-30 para que el monto sea asiento normal y otro del 31-42 asinto vip para cobrar monto mayor   
+asientoVend = 0  
 arrayVip =np.array(asientosList_Vip).reshape(2,6)
 for fila in range(2):
     for asiento in range(6):
@@ -63,7 +52,7 @@ while op !=5:
         if op == 2:
             comprarAsientos()
             bancoPasajero = input("Banco: ")
-            if bancoPasajero == "banco duoc":
+            if bancoPasajero == "bancoDuoc":
                 valorAVipdesc = valorAVp*descuento
                 valorAsndesc=valorAsn*descuento
                 valorAsn = valorAsn - valorAsndesc
@@ -83,9 +72,8 @@ while op !=5:
                                 arrayNorm[fila][asiento] = "X"
                                 print(arrayNorm)
                                 print(arrayVip)
-                          #asNorm = int(input("favor elegir asientos entre el 1 y el 30?: "))   
-                          #asiento = asientosDisp(asiento)
-                print("Total asientos comprados: ",asNorm,"\n", "Monto total a pagar: ""  $",cantAsn)
+                          
+                print(" Total asientos comprados: ",asNorm,"\n","Monto total a pagar: ""$",cantAsn)
             if asComp == 2:
                 asVip = int(input("indicar cantidad de asientos que comprara: "))
                 print(arrayVip)
@@ -98,19 +86,20 @@ while op !=5:
                                 arrayVip[fila][asiento] = "X"
                                 print(arrayNorm)
                                 print(arrayVip)
-            print("Total asientos comprados: ",asVip,"\n", "Monto total a pagar: ""  $",cantAsv)
+            print(" Total asientos comprados: ",asVip,"\n","Monto total a pagar: ""$",cantAsv)
         if op == 3:
-            eliminar = input("eliga asientos: ")
-            count = 0 
-            if int(eliminar) <= 30:
-                for fila in range(5):
-                    for asiento in range(6):
-                        count = count + 1
-                        if str(arrayNorm[fila][asiento]) == "X" and count == int(eliminar):
-                            arrayNorm[fila][asiento] = count
+            for i in range(asNorm):
+                eliminar = input("eliga asientos: ")
+                count = 0 
+                if int(eliminar) <= 30:
+                    for fila in range(5):
+                        for asiento in range(6):
+                            count = count + 1
+                            if str(arrayNorm[fila][asiento]) == "X" and count == int(eliminar):
+                                arrayNorm[fila][asiento] = count
                             
-                            print(arrayNorm)
-                            print(arrayVip)
+                                print(arrayNorm)
+                                print(arrayVip)
             else:
                 count = count + 30
                 for fila in range(2):
