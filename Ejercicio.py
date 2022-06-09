@@ -87,14 +87,27 @@ while op !=5:
                                 print(arrayNorm)
                                 print(arrayVip)
         if op == 3:
-
-            for fila in range(5):
-                for asiento in range(6):
-                    if arrayNorm[fila][asiento] == "X":
-                        arrayNorm[fila][asiento] = asientoVend
-                        
-                        print(arrayNorm)
-                        print(arrayVip)
+            eliminar = input("eliga asientos: ")
+            count = 0 
+            if int(eliminar) <= 30:
+                for fila in range(5):
+                    for asiento in range(6):
+                        count = count + 1
+                        if str(arrayNorm[fila][asiento]) == "X" and count == int(eliminar):
+                            arrayNorm[fila][asiento] = count
+                            
+                            print(arrayNorm)
+                            print(arrayVip)
+            else:
+                count = count + 30
+                for fila in range(2):
+                    for asiento in range(6):
+                        count = count + 1
+                        if str(arrayVip[fila][asiento]) == "X" and count == int(eliminar):
+                            arrayVip[fila][asiento] = count
+                            
+                            print(arrayNorm)
+                            print(arrayVip)
             
         if op == 4:
             print("*"*30) 
