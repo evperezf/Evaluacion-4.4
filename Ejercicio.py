@@ -62,22 +62,44 @@ while op !=5:
             if asComp == 1:
                 asNorm = int(input("indicar cantidad de asientos que comprara: "))
                 print(arrayNorm)
-                cantAs = asNorm*valorAsn
+                cantAsn = asNorm*valorAsn
                 for i in range(asNorm):
                     asientoVend = input("eliga asientos: ")
-                    print(arrayNorm)
+                    for fila in range(5):
+                         for asiento in range(6):
+                            if asientoVend == arrayNorm[fila][asiento]:
+                                arrayNorm[fila][asiento] = "X"
+                                print(arrayNorm)
+                                print(arrayVip)
                           #asNorm = int(input("favor elegir asientos entre el 1 y el 30?: "))   
                           #asiento = asientosDisp(asiento)
-                print("total: ",asNorm,"  $",cantAs)
+                print("total: ",asNorm,"  $",cantAsn)
+            if asComp == 2:
+                asVip = int(input("indicar cantidad de asientos que comprara: "))
+                print(arrayVip)
+                cantAsv = asVip*valorAVp
+                for i in range(asVip):
+                    asientoVend = input("eliga asientos: ")
+                    for fila in range(2):
+                         for asiento in range(6):
+                             if asientoVend == arrayVip[fila][asiento]:
+                                arrayVip[fila][asiento] = "X"
+                                print(arrayNorm)
+                                print(arrayVip)
         if op == 3:
-            anular = int(input("¿desea anular vuelo? (1=si, 2=no): "))
-            if anular == 1:
-                #asiento = vueloAnulado(asiento)
-                print("asientos anulados")
-            if anular == 2:
-                print("adios")
+
+            for fila in range(5):
+                for asiento in range(6):
+                    if arrayNorm[fila][asiento] == "X":
+                        arrayNorm[fila][asiento] = asientoVend
+                        
+                        print(arrayNorm)
+                        print(arrayVip)
+            
         if op == 4:
-            print("continuara...")    
+            print("*"*30) 
+            comprarAsientos()
+            print("*"*30)    
     except:
         print("Debe ingresar un numero")
 print("adios")
